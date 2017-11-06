@@ -9,27 +9,49 @@ namespace RoverList
     class RoverList : RoverListBase
     {
         // Add any variables you need here
+        int check = 0;
         
         public RoverList ()
         {
-
+            head = null;
         }
 
-        public override int Count => throw new NotImplementedException();
+        public override int Count 
+        {
+            get {
+                return 0;
+            }
+        }
 
         public override void Add(object data)
         {
-            throw new NotImplementedException();
+            if (head == null)
+            {
+                head = new Node(data);
+                current = head;
+            }
+           else
+            {
+                current.Next = new Node(data);
+                current = current.Next;
+            }
         }
 
         public override void Add(int Position, object data)
         {
-            throw new NotImplementedException();
+            current = head;
+            check = 0;
+            while (check != Position)
+            {
+                current = current.Next;
+                check++;
+            }
+            current = (Node)data;
         }
 
         public override void Clear()
         {
-            throw new NotImplementedException();
+            head = null;
         }
 
         public override Node ElementAt(int Position)

@@ -6,13 +6,32 @@ using System.Threading.Tasks;
 
 namespace RoverList
 {
-    class Program
+    class Program 
     {
         static void Main(string[] args)
         {
+            RoverList list = new RoverList();
+
             // TODO:  Implement the RoverList class
             // TODO:  Create a RoverList and then fill it with 16 words
+            list.Add("Hello");
+            list.Add("World");
+            list.Add("Alex");
+            list.Add("is");
+            list.Add("a");
+            list.Add("borneo");
+            list.Add("and");
+            list.Add("wait");
+            list.Add("Frieza");
+            list.Add("is");
+            list.Add("cheating");
+            list.Add("my");
+            list.Add("name");
+            list.Add("be");
+            list.Add("Jacco");
+            list.Add("Guys");
 
+            list.Add(2, "muffin");
             // TODO:  Print out the list
 
             // TODO:  Remove every 3rd word
