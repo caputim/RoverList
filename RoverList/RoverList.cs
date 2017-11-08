@@ -10,7 +10,8 @@ namespace RoverList
     {
         // Add any variables you need here
         int check = 0;
-        
+        protected Node curry;
+
         public RoverList ()
         {
             head = null;
@@ -39,14 +40,16 @@ namespace RoverList
 
         public override void Add(int Position, object data)
         {
-            current = head;
+            Node newNode = new Node(data);
+            curry = head;
             check = 0;
-            while (check != Position)
+            while (check != Position - 1)
             {
-                current = current.Next;
+                curry = curry.Next;
                 check++;
             }
-            current = (Node)data;
+            newNode.Next = curry.Next;
+            curry.Next = newNode;
         }
 
         public override void Clear()
@@ -56,12 +59,20 @@ namespace RoverList
 
         public override Node ElementAt(int Position)
         {
-            throw new NotImplementedException();
+            curry = head;
+            check = 0;
+            while (check != Position)
+            {
+                curry = curry.Next;
+                check++;
+            }
+            return curry;
         }
 
         public override void ListNodes()
         {
-            throw new NotImplementedException();
+
+            
         }
 
         public override bool RemoveAt(int Position)

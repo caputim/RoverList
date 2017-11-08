@@ -32,6 +32,7 @@ namespace RoverList
             list.Add("Guys");
 
             list.Add(2, "muffin");
+            Console.WriteLine(list.ElementAt(2).Data);
             // TODO:  Print out the list
 
             // TODO:  Remove every 3rd word
