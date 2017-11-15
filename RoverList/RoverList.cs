@@ -43,13 +43,21 @@ namespace RoverList
             Node newNode = new Node(data);
             curry = head;
             check = 0;
-            while (check != Position - 1)
+            if (Position == 0)
             {
-                curry = curry.Next;
-                check++;
+                newNode.Next = head;
+                head = newNode;
             }
-            newNode.Next = curry.Next;
-            curry.Next = newNode;
+            if (Position != 0)
+            {
+                while (check != Position - 1)
+                {
+                    curry = curry.Next;
+                    check++;
+                }
+                newNode.Next = curry.Next;
+                curry.Next = newNode;
+            }
         }
 
         public override void Clear()
@@ -67,17 +75,40 @@ namespace RoverList
                 check++;
             }
             return curry;
+            
         }
 
         public override void ListNodes()
         {
-
-            
+            curry = head;
+            while(curry != null)
+            {
+                Console.Write(curry.Data + " ");
+                curry = curry.Next;   
+            }
         }
 
         public override bool RemoveAt(int Position)
         {
-            throw new NotImplementedException();
+            curry = head;
+            check = 0;
+            if (Position == 0)
+            {
+                head = head.Next;
+                return true;
+            }
+            if (Position != 0)
+            {
+                while (check != Position - 1)
+                {
+                    curry = curry.Next;
+                    check++;
+                }
+                curry.Next = curry.Next.Next;
+                return true;
+            }
+            else return false;
         }
+        
     }
 }
